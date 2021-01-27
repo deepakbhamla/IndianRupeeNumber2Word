@@ -12,14 +12,14 @@ pdf_list=[
 
     ]
     
-for ap in pdf_list:
+for item in pdf_list:
     all_text =''
-    with pdfplumber.open(ap) as pdf:
+    with pdfplumber.open(item) as pdf:
         for pdf_page in pdf.pages:
             single_page_text = pdf_page.extract_text()
             all_text = all_text + '\n' + single_page_text
 
-    f = open(f'{ap}.txt',"w+")
+    f = open(f'{item}.txt',"w+")
     f.write(all_text)
     f.close()
-    print(f":::::::DONE--{ap} :::::::::")
+    print(f":::::::DONE--{item} :::::::::")
